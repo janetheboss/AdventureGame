@@ -5,13 +5,11 @@ public class Player {
     private String name;
     private int health;
     private List<Item> inventory;
-    private Room currentRoom;
 
-    public Player(String name, int health, List<Item> items, Room currentRoom) {
+    public Player(String name, int health, List<Item> items) {
         this.name = name;
         this.health = 100;
         this.inventory = new ArrayList<>();
-        this.currentRoom = currentRoom;
     }
 
     public String getName() {
@@ -46,14 +44,6 @@ public class Player {
 
     public void removeItem(Item item) {
         inventory.remove(item);
-    }
-
-    public Room getCurrentRoom() {
-        return currentRoom;
-    }
-
-    public void setCurrentRoom(Room currentRoom) {
-        this.currentRoom = currentRoom;
     }
 
     public void showInventory() {
