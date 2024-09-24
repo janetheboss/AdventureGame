@@ -1,14 +1,22 @@
 import Exceptions.UserException;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.util.Base64;
 import java.util.Scanner;
 
 public class RegisterUser extends User {
-
-    public RegisterUser(String username, String password) {
-        super(username, password);
+    public RegisterUser(String username, String hashedPassword, String salt) {
+        super(username, hashedPassword, salt);
     }
 
-    public static RegisterUser register(Scanner scanner) {
+    public RegisterUser() {
+        super("", "", "");
+    }
+
+    public RegisterUser register(Scanner scanner) {
         try {
             System.out.println("Enter username for registration:");
             String newUsername = scanner.nextLine();
@@ -21,10 +29,13 @@ public class RegisterUser extends User {
 
             validateInput(newUsername, newPassword, confirmPassword);
 
-            System.out.println("Registration successful!");
-            return new RegisterUser(newUsername, newPassword);
+            String salt = generateSalt();
+            String hashedPassword = hashPassword(newPassword, salt);
 
-        } catch (UserException e) {
+            System.out.println("Registration successful!");
+            return new RegisterUser(newUsername, hashedPassword, salt);
+
+        } catch (UserException | NoSuchAlgorithmException e) {
             System.out.println(e.getMessage());
             return null;
         } catch (Exception e) {
@@ -33,7 +44,7 @@ public class RegisterUser extends User {
         }
     }
 
-    private static void validateInput(String username, String password, String confirmPassword) throws UserException {
+    private void validateInput(String username, String password, String confirmPassword) throws UserException {
         if (username.trim().isEmpty() || password.trim().isEmpty()) {
             throw new UserException("Username and password cannot be empty!");
         }
@@ -41,5 +52,19 @@ public class RegisterUser extends User {
         if (!password.equals(confirmPassword)) {
             throw new UserException("Passwords do not match!");
         }
+    }
+
+    private String generateSalt() throws NoSuchAlgorithmException {
+        SecureRandom sr = SecureRandom.getInstanceStrong();
+        byte[] saltBytes = new byte[16];
+        sr.nextBytes(saltBytes);
+        return Base64.getEncoder().encodeToString(saltBytes);
+    }
+
+    String hashPassword(String password, String salt) throws NoSuchAlgorithmException {
+        MessageDigest md = MessageDigest.getInstance("SHA-256");
+        String saltedPassword = password + salt;
+        byte[] hashedBytes = md.digest(saltedPassword.getBytes(StandardCharsets.UTF_8));
+        return Base64.getEncoder().encodeToString(hashedBytes);
     }
 }

@@ -1,29 +1,23 @@
-import java.util.Scanner;
-
 public class User {
     private String username;
-    private String password;
-    private Player player;
+    private String hashedPassword;
+    private String salt;
 
-    public User(String username, String password) {
+    public User(String username, String hashedPassword, String salt) {
         this.username = username;
-        this.password = password;
+        this.hashedPassword = hashedPassword;
+        this.salt = salt;
     }
 
     public String getUsername() {
         return username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public String getHashedPassword() {
+        return hashedPassword;
     }
 
-    public String getPassword() {
-        return password;
+    public String getSalt() {
+        return salt;
     }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
 }

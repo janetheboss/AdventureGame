@@ -3,13 +3,16 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        RegisterUser registerUser = new RegisterUser();
+        User registeredUser = null;
 
-        RegisterUser registeredUser = null;
         while (registeredUser == null) {
-            registeredUser = RegisterUser.register(scanner);
+            registeredUser = registerUser.register(scanner);
         }
-        LogInUser logIn = new LogInUser();
-        logIn.validation(scanner, registeredUser);
+
+        LogInUser logInUser = new LogInUser();
+        logInUser.validation(scanner, registeredUser);
+
         scanner.close();
     }
 }

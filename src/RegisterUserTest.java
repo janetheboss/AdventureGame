@@ -1,19 +1,20 @@
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
-import Exceptions.UserException;
 import java.util.Scanner;
 
 public class RegisterUserTest {
+
     @Test
-    public void testRegisterSuccess() throws UserException {
+    public void testRegisterSuccess() {
         String input = "validUser\nvalidPass123\nvalidPass123\n";
         Scanner scanner = new Scanner(input);
 
-        RegisterUser registeredUser = RegisterUser.register(scanner);
+        RegisterUser registerUser = new RegisterUser();
+        User registeredUser = registerUser.register(scanner);
 
         assertNotNull(registeredUser, "User should be successfully registered");
-        assertEquals("validUser", registeredUser.getUsername(), "Username should be validUser");
-        assertEquals("validPass123", registeredUser.getPassword(), "Password should be validPass123");
+        assertEquals("validUser", registeredUser.getUsername(), "Username should be 'validUser'");
+        assertNotEquals("validPass123", registeredUser.getHashedPassword(), "Password should be hashed, not plain text");
 
         scanner.close();
     }
@@ -23,25 +24,37 @@ public class RegisterUserTest {
         String input = "testUser\npassword123\npassword321\n";
         Scanner scanner = new Scanner(input);
 
-        RegisterUser registeredUser = RegisterUser.register(scanner);
+        RegisterUser registerUser = new RegisterUser();
+        User registeredUser = registerUser.register(scanner);
 
         assertNull(registeredUser, "User registration should fail due to password mismatch");
 
         scanner.close();
     }
+
     @Test
-    public void testUsernameIsEmpty() {
-        String inputEmptyUsername = "\npassword123\npassword123\n";
-        Scanner scannerEmptyUsername = new Scanner(inputEmptyUsername);
+    public void testEmptyUsername() {
+        String input = "\npassword123\npassword123\n";
+        Scanner scanner = new Scanner(input);
 
-        RegisterUser registeredUser = RegisterUser.register(scannerEmptyUsername);
+        RegisterUser registerUser = new RegisterUser();
+        User registeredUser = registerUser.register(scanner);
+
         assertNull(registeredUser, "User registration should fail due to empty username");
-        scannerEmptyUsername.close();
 
-        String inputEmptyPassword = "testUser\n\n\n";
-        Scanner scannerEmptyPassword = new Scanner(inputEmptyPassword);
-        registeredUser = RegisterUser.register(scannerEmptyPassword);
+        scanner.close();
+    }
+
+    @Test
+    public void testEmptyPassword() {
+        String input = "testUser\n\n\n";
+        Scanner scanner = new Scanner(input);
+
+        RegisterUser registerUser = new RegisterUser();
+        User registeredUser = registerUser.register(scanner);
+
         assertNull(registeredUser, "User registration should fail due to empty password");
-        scannerEmptyPassword.close();
+
+        scanner.close();
     }
 }

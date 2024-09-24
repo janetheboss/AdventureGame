@@ -1,9 +1,9 @@
 import Exceptions.UserException;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
 
 public class LogInUser {
-
     public void validation(Scanner scanner, User registeredUser) {
         try {
             System.out.println("Enter username for LogIn:");
@@ -28,8 +28,18 @@ public class LogInUser {
             throw new UserException("Username and password cannot be empty!");
         }
 
-        if (!registeredUser.getUsername().equals(username) || !registeredUser.getPassword().equals(password)) {
+        if (!registeredUser.getUsername().equals(username) || !isPasswordValid(password, registeredUser)) {
             throw new UserException("Invalid username or password. Please try again.");
+        }
+    }
+
+    private boolean isPasswordValid(String inputPassword, User registeredUser) {
+        try {
+            String hashedInputPassword = new RegisterUser().hashPassword(inputPassword, registeredUser.getSalt());
+            return hashedInputPassword.equals(registeredUser.getHashedPassword());
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            return false;
         }
     }
 }
