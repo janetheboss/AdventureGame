@@ -1,5 +1,4 @@
 import Exceptions.UserException;
-
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -8,6 +7,7 @@ import java.util.Base64;
 import java.util.Scanner;
 
 public class RegisterUser extends User {
+
     public RegisterUser(String username, String hashedPassword, String salt) {
         super(username, hashedPassword, salt);
     }
@@ -32,8 +32,11 @@ public class RegisterUser extends User {
             String salt = generateSalt();
             String hashedPassword = hashPassword(newPassword, salt);
 
+            RegisterUser newUser = new RegisterUser(newUsername, hashedPassword, salt);
+            User.setInstance(newUsername, hashedPassword, salt);
+
             System.out.println("Registration successful!");
-            return new RegisterUser(newUsername, hashedPassword, salt);
+            return newUser;
 
         } catch (UserException | NoSuchAlgorithmException e) {
             System.out.println(e.getMessage());

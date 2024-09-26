@@ -1,25 +1,37 @@
 import Exceptions.UserException;
-
 import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
 
 public class LogInUser {
+
     public void validation(Scanner scanner, User registeredUser) {
-        try {
-            System.out.println("Enter username for LogIn:");
-            String inputUsername = scanner.nextLine();
+        int attempts = 3;
 
-            System.out.println("Enter password for LogIn:");
-            String inputPassword = scanner.nextLine();
+        while (attempts > 0) {
+            try {
+                System.out.println("Enter username for LogIn:");
+                String inputUsername = scanner.nextLine();
 
-            validateCredentials(inputUsername, inputPassword, registeredUser);
+                System.out.println("Enter password for LogIn:");
+                String inputPassword = scanner.nextLine();
 
-            System.out.println("You have successfully logged in.");
+                validateCredentials(inputUsername, inputPassword, registeredUser);
 
-        } catch (UserException e) {
-            System.out.println(e.getMessage());
-        } catch (Exception e) {
-            System.out.println("An unexpected error occurred: " + e.getMessage());
+                System.out.println("You have successfully logged in.");
+                break;
+
+            } catch (UserException e) {
+                attempts--;
+                System.out.println(e.getMessage());
+                System.out.println("Remaining attempts: " + attempts);
+
+                if (attempts == 0) {
+                    System.out.println("You have been locked out after 3 failed attempts.");
+                }
+            } catch (Exception e) {
+                System.out.println("An unexpected error occurred: " + e.getMessage());
+                break;
+            }
         }
     }
 
