@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e220ced6-43db-4e36-9e6e-6ba047c952b6" name="Changes" comment="Fixed problem with user" />
+    <list default="true" id="e220ced6-43db-4e36-9e6e-6ba047c952b6" name="Changes" comment="Fixed problem with user">
+      <change afterPath="$PROJECT_DIR$/src/PlayerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RegisterUserInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RegisterUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RegisterUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RegisterUserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RegisterUserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,6 +60,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
@@ -136,7 +147,7 @@
       <updated>1726879540880</updated>
       <workItem from="1726879541243" duration="4417000" />
       <workItem from="1726950581174" duration="21836000" />
-      <workItem from="1727309620480" duration="1257000" />
+      <workItem from="1727309620480" duration="6117000" />
     </task>
     <task id="LOCAL-00001" summary="The basic classes for the adventure game">
       <created>1726885699768</created>
@@ -174,7 +185,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727394246665</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Fixed problem with user">
+      <option name="closed" value="true" />
+      <created>1727394328246</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1727394328246</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

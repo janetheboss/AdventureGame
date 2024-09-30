@@ -1,3 +1,4 @@
+import Exceptions.UserException;
 import java.util.Scanner;
 
 public class UserService {
@@ -9,14 +10,60 @@ public class UserService {
         registerUser = new RegisterUser();
         logInUser = new LogInUser();
     }
-
     public void registerUser(Scanner scanner) {
-        while (registeredUser == null) {
-            registeredUser = registerUser.register(scanner);
+        boolean isRegistered = false;
+
+        while (!isRegistered) {
+            try {
+                RegisterUserInput input = getUserRegistrationInput(scanner);
+
+                registeredUser = registerUser.register(input);
+
+                if (registeredUser != null) {
+                    System.out.println("Registration successful!");
+                    isRegistered = true;
+                }
+            } catch (UserException e) {
+                System.out.println("Registration failed: " + e.getMessage());
+            } catch (Exception e) {
+                System.out.println("An unexpected error occurred: " + e.getMessage());
+            }
         }
     }
 
+    private RegisterUserInput getUserRegistrationInput(Scanner scanner) {
+        System.out.println("Enter username for registration: ");
+        String username = scanner.nextLine();
+
+        System.out.println("Enter password for registration: ");
+        String password = scanner.nextLine();
+
+        System.out.println("Confirm password: ");
+        String confirmPassword = scanner.nextLine();
+
+        return new RegisterUserInput(username, password, confirmPassword);
+    }
+
     public void logInUser(Scanner scanner) {
-        logInUser.validation(scanner, registeredUser);
+        int attempts = 0;
+        boolean isLoggedIn = false;
+        while (!isLoggedIn && attempts < 3) {
+            try {
+                logInUser.validation(scanner, registeredUser);
+                isLoggedIn = true;
+                System.out.println("Login successful!");
+            } catch (Exception e) {
+                System.out.println("An unexpected error occurred: " + e.getMessage());
+                break;
+            }
+        }
+
+        if (!isLoggedIn && attempts == 3) {
+            System.out.println("Login failed after 3 attempts.");
+        }
+    }
+
+    public User getRegisteredUser() {
+        return registeredUser;
     }
 }
