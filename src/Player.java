@@ -3,15 +3,26 @@ import java.util.List;
 
 public class Player {
     private String name;
-    private int health;
+    private String playerClass;
     private List<Item> inventory;
-    private Room currentRoom;
 
-    public Player(String name, int health, List<Item> items, Room currentRoom) {
+    private static Player instance;
+
+    private Player(String name, String playerClass) {
         this.name = name;
-        this.health = 100;
+        this.playerClass = playerClass;
         this.inventory = new ArrayList<>();
-        this.currentRoom = currentRoom;
+    }
+
+    public static Player getInstance(String name, String playerClass) {
+        if (instance == null) {
+            instance = new Player(name, playerClass);
+        }
+        return instance;
+    }
+
+    public static Player getInstance() {
+        return instance;
     }
 
     public String getName() {
@@ -22,21 +33,12 @@ public class Player {
         this.name = name;
     }
 
-    public int getHealth() {
-        return health;
+    public String getPlayerClass() {
+        return playerClass;
     }
 
-    public void damageTaken(int dmg) {
-        health -= dmg;
-        System.out.println("The current health after taking damage is : " + health);
-        if(health <=0 )
-        {
-            System.out.println("The players has died ,because they have 0 hp");
-        }else  System.out.println("The current health after taking damage is : " + health);
-    }
-
-    public void setHealth(int health) {
-        this.health = health;
+    public void setPlayerClass(String playerClass) {
+        this.playerClass = playerClass;
     }
 
     public void addItem(Item item) {
@@ -46,14 +48,6 @@ public class Player {
 
     public void removeItem(Item item) {
         inventory.remove(item);
-    }
-
-    public Room getCurrentRoom() {
-        return currentRoom;
-    }
-
-    public void setCurrentRoom(Room currentRoom) {
-        this.currentRoom = currentRoom;
     }
 
     public void showInventory() {
