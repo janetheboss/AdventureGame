@@ -1,4 +1,4 @@
-public class MonsterModel {
+public class Monster {
     private String name;
     private String race;
     private int attack;
@@ -7,7 +7,7 @@ public class MonsterModel {
    private int specialAttack;
    private int specialDefense;
 
-    public MonsterModel(String name, String race, int attack, int defense, int health,int specialAttack, int specialDefense) {
+    public Monster(String name, String race, int attack, int defense, int health, int specialAttack, int specialDefense) {
         this.name = name;
         this.race = race;
         this.attack = attack;
