@@ -22,11 +22,11 @@ public class RegisterUser {
         return new User(input.getUsername(), hashedPassword, salt);
     }
 
-    private String generateSalt() throws NoSuchAlgorithmException {
-        SecureRandom sr = SecureRandom.getInstanceStrong();
-        byte[] saltBytes = new byte[16];
-        sr.nextBytes(saltBytes);
-        return Base64.getEncoder().encodeToString(saltBytes);
+        public String generateSalt() throws NoSuchAlgorithmException {
+         SecureRandom sr = SecureRandom.getInstanceStrong();
+         byte[] saltBytes = new byte[16];
+         sr.nextBytes(saltBytes);
+         return Base64.getEncoder().encodeToString(saltBytes);
     }
 
     public String hashPassword(String password, String salt) throws NoSuchAlgorithmException {
