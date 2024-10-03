@@ -22,7 +22,7 @@ public class RegisterUser {
         return new User(input.getUsername(), hashedPassword, salt);
     }
 
-    String generateSalt() throws NoSuchAlgorithmException {
+        String generateSalt() throws NoSuchAlgorithmException {
         SecureRandom sr = SecureRandom.getInstanceStrong();
         byte[] saltBytes = new byte[16];
         sr.nextBytes(saltBytes);
