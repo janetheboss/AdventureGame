@@ -5,19 +5,19 @@ public class UserService {
     private User registeredUser;
     private RegisterUser registerUser;
     private LogInUser logInUser;
+    private RegisterUserInput registerUserInput;
 
     public UserService() {
         registerUser = new RegisterUser();
         logInUser = new LogInUser();
     }
+
     public void registerUser(Scanner scanner) {
         boolean isRegistered = false;
-
         while (!isRegistered) {
             try {
-                RegisterUserInput input = getUserRegistrationInput(scanner);
-
-                registeredUser = registerUser.register(input);
+                registerUserInput = getUserRegistrationInput(scanner);
+                registeredUser = registerUser.register(registerUserInput);
 
                 if (registeredUser != null) {
                     System.out.println("Registration successful!");
@@ -47,20 +47,19 @@ public class UserService {
     public void logInUser(Scanner scanner) {
         int attempts = 0;
         boolean isLoggedIn = false;
+
         while (!isLoggedIn && attempts < 3) {
-            try {
-                logInUser.validation(scanner, registeredUser);
-                isLoggedIn = true;
-                System.out.println("Login successful!");
-            } catch (Exception e) {
-                System.out.println("An unexpected error occurred: " + e.getMessage());
-                break;
-            }
+            logInUser.validation(scanner, registeredUser);
+            isLoggedIn = true;
+            System.out.println("Login successful!");
         }
 
-        if (!isLoggedIn && attempts == 3) {
+        if (!isLoggedIn) {
             System.out.println("Login failed after 3 attempts.");
         }
+    }
+    public RegisterUserInput getRegisterUserInput() {
+        return registerUserInput;
     }
 
     public User getRegisteredUser() {

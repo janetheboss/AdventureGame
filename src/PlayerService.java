@@ -29,4 +29,17 @@ public class PlayerService {
             System.out.println("No registered user. Please register before creating a player.");
         }
     }
+    public void changeUserPassword(UserService userService, UserChangePassword userChangePassword) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Do you want to change your password? (yes/no): ");
+        String changePasswordOption = scanner.nextLine();
+
+        if (changePasswordOption.equalsIgnoreCase("yes")) {
+            try {
+                userChangePassword.changePassword(userService.getRegisteredUser(), userService.getRegisterUserInput());
+            } catch (Exception e) {
+                System.out.println("An error occurred during password change: " + e.getMessage());
+            }
+        }
+    }
 }

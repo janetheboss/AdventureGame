@@ -20,4 +20,16 @@ public class User {
     public String getSalt() {
         return salt;
     }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setHashedPassword(String hashedPassword) {
+        this.hashedPassword = hashedPassword;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
 }
