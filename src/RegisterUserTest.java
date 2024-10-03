@@ -54,6 +54,6 @@ public class RegisterUserTest {
             registerUser.register(input);
         });
 
-        assertEquals("Username and password cannot be empty!", exception.getMessage(), "Empty password should trigger exception");
+        assertEquals("Username and password cannot be empty!!!", exception.getMessage(), "Empty password should trigger exception");
     }
 }
