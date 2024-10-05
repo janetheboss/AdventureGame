@@ -18,6 +18,8 @@ public class Main {
         System.out.println("----- Create Player -----");
         playerService.createPlayerIfUserExists(userService.getRegisteredUser());
 
+        playerService.handleEditPlayerInfo(scanner);
+
         scanner.close();
     }
 }
