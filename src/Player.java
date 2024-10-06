@@ -41,23 +41,7 @@ public class Player {
         this.playerClass = playerClass;
     }
 
-    public void addItem(Item item) {
-        inventory.add(item);
-        System.out.println(item.getName() + " added to your inventory.");
-    }
-
-    public void removeItem(Item item) {
-        inventory.remove(item);
-    }
-
-    public void showInventory() {
-        System.out.println("The inventory of the player is :");
-        if (inventory.isEmpty()) {
-            System.out.println(" - empty - ");
-        } else {
-            for (Item item : inventory) {
-                System.out.println(" - " + item.getName());
-            }
-        }
+    public static void setInstance(Player instance) {
+        Player.instance = instance;
     }
 }
