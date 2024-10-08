@@ -20,6 +20,15 @@ public class UserService {
                 registeredUser = registerUser.register(registerUserInput);
 
                 if (registeredUser != null) {
+                    if (registeredUser.isMarkedForDeletion()) {
+                        System.out.println("Account deletion is pending. Registration failed.");
+                        continue;
+                    }
+                    if (registeredUser.isMarkedForDeletion()) {
+                        System.out.println("Account deletion is pending. Registration failed.");
+                        continue;
+                    }
+
                     System.out.println("Registration successful!");
                     isRegistered = true;
                 }
@@ -58,6 +67,7 @@ public class UserService {
             System.out.println("Login failed after 3 attempts.");
         }
     }
+
     public RegisterUserInput getRegisterUserInput() {
         return registerUserInput;
     }

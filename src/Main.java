@@ -20,6 +20,13 @@ public class Main {
 
         playerService.handleEditPlayerInfo(scanner);
 
+        System.out.println("----- Request Account Deletion -----");
+        DeleteUser deleteUser = new DeleteUser(scanner, userService.getRegisteredUser());
+        deleteUser.requestAccountDeletion();
+
+        System.out.println("----- Cancel Account Deletion Request -----");
+        deleteUser.cancelAccountDeletionRequest();
         scanner.close();
+
     }
 }
