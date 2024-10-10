@@ -6,23 +6,10 @@ public class Player {
     private String playerClass;
     private List<Item> inventory;
 
-    private static Player instance;
-
-    private Player(String name, String playerClass) {
+    public Player(String name, String playerClass) {
         this.name = name;
         this.playerClass = playerClass;
         this.inventory = new ArrayList<>();
-    }
-
-    public static Player getInstance(String name, String playerClass) {
-        if (instance == null) {
-            instance = new Player(name, playerClass);
-        }
-        return instance;
-    }
-
-    public static Player getInstance() {
-        return instance;
     }
 
     public String getName() {
@@ -41,7 +28,11 @@ public class Player {
         this.playerClass = playerClass;
     }
 
-    public static void setInstance(Player instance) {
-        Player.instance = instance;
+    public void addItem(Item item) {
+        inventory.add(item);
+    }
+
+    public List<Item> getInventory() {
+        return inventory;
     }
 }
