@@ -3,30 +3,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        UserService userService = new UserService();
-        PlayerService playerService = new PlayerService();
-        UserChangePassword userChangePassword = new UserChangePassword();
-
-        System.out.println("----- Registration -----");
-        userService.registerUser(scanner);
-
-        System.out.println("----- Login -----");
-        userService.logInUser(scanner);
-
-        playerService.changeUserPassword(userService, userChangePassword);
-
-        System.out.println("----- Create Player -----");
-        playerService.createPlayerIfUserExists(userService.getRegisteredUser());
-
-        playerService.handleEditPlayerInfo(scanner);
-
-        System.out.println("----- Request Account Deletion -----");
-        DeleteUser deleteUser = new DeleteUser(scanner, userService.getRegisteredUser());
-        deleteUser.requestAccountDeletion();
-
-        System.out.println("----- Cancel Account Deletion Request -----");
-        deleteUser.cancelAccountDeletionRequest();
-        scanner.close();
-
+        MenuService menuService = new MenuService(scanner);
+        menuService.run();
     }
 }
