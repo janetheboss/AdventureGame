@@ -1,5 +1,3 @@
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class MenuService {
@@ -7,64 +5,16 @@ public class MenuService {
     private final UserService userService;
     private final PlayerService playerService;
     private final UserChangePassword userChangePassword;
-    private final Map<Integer, Runnable> actions;
 
     public MenuService(Scanner scanner) {
         this.scanner = scanner;
         this.userService = new UserService();
         this.playerService = new PlayerService();
         this.userChangePassword = new UserChangePassword();
-        this.actions = new HashMap<>();
 
         PlayerData.seedPlayers(playerService);
-
-        actions.put(1, () -> {
-            System.out.println("----- Registration -----");
-            userService.registerUser(scanner);
-        });
-
-        actions.put(2, () -> {
-            System.out.println("----- Login -----");
-            userService.logInUser(scanner);
-        });
-
-        actions.put(3, () -> {
-            System.out.println("----- Change Password -----");
-            playerService.changeUserPassword(userService, userChangePassword);
-        });
-
-        actions.put(4, () -> {
-            System.out.println("----- Create Player -----");
-            playerService.createAndAddPlayer(scanner);
-        });
-
-        actions.put(5, () -> {
-            System.out.println("----- Edit Player Information -----");
-            playerService.handleEditPlayerInfo(scanner);
-        });
-
-        actions.put(6, () -> {
-            System.out.println("----- Display All Players -----");
-            playerService.displayAllPlayers(scanner);
-        });
-
-        actions.put(7, () -> {
-            System.out.println("----- Search Player by Name -----");
-            playerService.searchPlayerByName(scanner);
-        });
-
-        actions.put(8, () -> {
-            System.out.println("----- Request Account Deletion -----");
-            DeleteUser deleteUser = new DeleteUser(scanner, userService.getRegisteredUser());
-            deleteUser.requestAccountDeletion();
-        });
-
-        actions.put(9, () -> {
-            System.out.println("----- Cancel Account Deletion Request -----");
-            DeleteUser deleteUserCancel = new DeleteUser(scanner, userService.getRegisteredUser());
-            deleteUserCancel.cancelAccountDeletionRequest();
-        });
     }
+
     public void run() {
         boolean exit = false;
 
@@ -85,15 +35,65 @@ public class MenuService {
             int choice = scanner.nextInt();
             scanner.nextLine();
 
-            Runnable action = actions.get(choice);
-            if (action != null) {
-                action.run();
-            } else if (choice == 0) {
-                exit = true;
-                System.out.println("Exiting program...");
-            } else {
-                System.out.println("Invalid choice. Please try again.");
-            }
+            exit = switch (choice) {
+                case 1 -> {
+                    System.out.println("----- Registration -----");
+                    userService.registerUser(scanner);
+                    yield false;
+                }
+                case 2 -> {
+                    System.out.println("----- Login -----");
+                    userService.logInUser(scanner);
+                    yield false;
+                }
+                case 3 -> {
+                    System.out.println("----- Change Password -----");
+                    playerService.changeUserPassword(userService, userChangePassword);
+                    yield false;
+                }
+                case 4 -> {
+                    System.out.println("----- Create Player -----");
+                    playerService.createAndAddPlayer(scanner);
+                    yield false;
+                }
+                case 5 -> {
+                    System.out.println("----- Edit Player Information -----");
+                    playerService.handleEditPlayerInfo(scanner);
+                    yield false;
+                }
+                case 6 -> {
+                    System.out.println("----- Display All Players -----");
+                    playerService.displayAllPlayers(scanner);
+                    yield false;
+                }
+                case 7 -> {
+                    System.out.println("----- Search Player by Name -----");
+                    playerService.searchPlayerByName(scanner);
+                    yield false;
+                }
+                case 8 -> {
+                    System.out.println("----- Request Account Deletion -----");
+                    DeleteUser deleteUser = new DeleteUser(scanner, userService.getRegisteredUser());
+                    deleteUser.requestAccountDeletion();
+                    yield false;
+                }
+                case 9 -> {
+                    System.out.println("----- Cancel Account Deletion Request -----");
+                    DeleteUser deleteUserCancel = new DeleteUser(scanner, userService.getRegisteredUser());
+                    deleteUserCancel.cancelAccountDeletionRequest();
+                    yield false;
+                }
+                case 0 -> {
+                    System.out.println("Exiting program...");
+                    yield true;
+                }
+                default -> {
+                    System.out.println("Invalid choice. Please try again.");
+                    yield false;
+                }
+            };
         }
+
+        scanner.close();
     }
 }
