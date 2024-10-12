@@ -1,6 +1,12 @@
+package unite_test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import Exceptions.UserException;
+import input_output.RegisterUserInput;
+import input_output.User;
+import operation.RegisterUser;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.security.NoSuchAlgorithmException;
 
@@ -13,9 +19,9 @@ public class RegisterUserTest {
         RegisterUser registerUser = new RegisterUser();
         User registeredUser = registerUser.register(input);
 
-        assertNotNull(registeredUser, "User should be successfully registered");
-        assertEquals("validUser", registeredUser.getUsername(), "Username should be 'validUser'");
-        assertNotEquals("validPass123", registeredUser.getHashedPassword(), "Password should be hashed, not plain text");
+        Assertions.assertNotNull(registeredUser, "input_output.User should be successfully registered");
+        Assertions.assertEquals("validUser", registeredUser.getUsername(), "Username should be 'validUser'");
+        Assertions.assertNotEquals("validPass123", registeredUser.getHashedPassword(), "Password should be hashed, not plain text");
     }
 
     @Test

@@ -1,3 +1,8 @@
+package operation;
+
+import input_output.RegisterUserInput;
+import input_output.User;
+
 import java.security.NoSuchAlgorithmException;
 
 public class UserChangePassword {

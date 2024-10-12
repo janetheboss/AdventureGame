@@ -1,3 +1,7 @@
+package unite_test;
+
+import input_output.User;
+import operation.DeleteUser;
 import org.junit.Before;
 import org.junit.Test;
 

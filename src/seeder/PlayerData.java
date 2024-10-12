@@ -1,3 +1,8 @@
+package seeder;
+
+import input_output.Player;
+import service.PlayerService;
+
 public class PlayerData {
     public static void seedPlayers(PlayerService playerService) {
         playerService.addPlayer(new Player("Alice", "Warrior"));

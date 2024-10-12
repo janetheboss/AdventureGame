@@ -1,4 +1,9 @@
+package operation;
+
 import Exceptions.UserException;
+import input_output.RegisterUserInput;
+import input_output.User;
+
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

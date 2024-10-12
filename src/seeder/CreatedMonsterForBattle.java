@@ -1,3 +1,7 @@
+package seeder;
+
+import input_output.Monster;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -46,7 +50,7 @@ public class CreatedMonsterForBattle{
     }
 
     public void displayMonsterDetails(Monster monster) {
-        System.out.println("\nMonster Details:");
+        System.out.println("\ninput_output.Monster Details:");
         System.out.println("Name: " + monster.getName());
         System.out.println("Race: " + monster.getRace());
         System.out.println("Attack: " + monster.getAttack());

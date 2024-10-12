@@ -1,3 +1,9 @@
+package service;
+
+import operation.DeleteUser;
+import operation.UserChangePassword;
+import seeder.PlayerData;
+
 import java.util.Scanner;
 
 public class MenuService {
@@ -20,13 +26,13 @@ public class MenuService {
 
         while (!exit) {
             System.out.println("----- Main Menu -----");
-            System.out.println("1. Register User");
-            System.out.println("2. Log In User");
-            System.out.println("3. Change User Password");
-            System.out.println("4. Create Player");
-            System.out.println("5. Edit Player Information");
+            System.out.println("1. Register input_output.User");
+            System.out.println("2. Log In input_output.User");
+            System.out.println("3. Change input_output.User Password");
+            System.out.println("4. Create input_output.Player");
+            System.out.println("5. Edit input_output.Player Information");
             System.out.println("6. Display All Players");
-            System.out.println("7. Search Player by Name");
+            System.out.println("7. Search input_output.Player by Name");
             System.out.println("8. Request Account Deletion");
             System.out.println("9. Cancel Account Deletion Request");
             System.out.println("0. Exit");
@@ -52,12 +58,12 @@ public class MenuService {
                     yield false;
                 }
                 case 4 -> {
-                    System.out.println("----- Create Player -----");
+                    System.out.println("----- Create input_output.Player -----");
                     playerService.createAndAddPlayer(scanner);
                     yield false;
                 }
                 case 5 -> {
-                    System.out.println("----- Edit Player Information -----");
+                    System.out.println("----- Edit input_output.Player Information -----");
                     playerService.handleEditPlayerInfo(scanner);
                     yield false;
                 }
@@ -67,7 +73,7 @@ public class MenuService {
                     yield false;
                 }
                 case 7 -> {
-                    System.out.println("----- Search Player by Name -----");
+                    System.out.println("----- Search input_output.Player by Name -----");
                     playerService.searchPlayerByName(scanner);
                     yield false;
                 }

@@ -1,3 +1,5 @@
+package input_output;
+
 public class Monster {
     private String name;
     private String race;
