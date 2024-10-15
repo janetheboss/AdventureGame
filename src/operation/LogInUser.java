@@ -1,7 +1,7 @@
 package operation;
 
 import Exceptions.UserException;
-import input_output.User;
+import model.User;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;

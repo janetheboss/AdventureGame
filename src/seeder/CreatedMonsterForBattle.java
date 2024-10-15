@@ -1,6 +1,6 @@
 package seeder;
 
-import input_output.Monster;
+import model.Monster;
 
 import java.util.ArrayList;
 import java.util.List;

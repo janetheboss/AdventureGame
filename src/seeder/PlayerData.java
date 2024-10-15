@@ -1,6 +1,6 @@
 package seeder;
 
-import input_output.Player;
+import model.Player;
 import service.PlayerService;
 
 public class PlayerData {

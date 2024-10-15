@@ -1,5 +1,3 @@
-import service.MenuService;
-
 import java.util.Scanner;
 
 public class Main {

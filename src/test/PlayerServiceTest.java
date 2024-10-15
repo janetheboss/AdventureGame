@@ -1,6 +1,6 @@
-package unite_test;
+package test;
 
-import input_output.Player;
+import model.Player;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

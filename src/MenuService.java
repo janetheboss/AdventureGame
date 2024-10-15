@@ -1,8 +1,8 @@
-package service;
-
 import operation.DeleteUser;
-import operation.UserChangePassword;
+import service.UserChangePassword;
 import seeder.PlayerData;
+import service.PlayerService;
+import service.UserService;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package input_output;
+package model;
 
 import java.util.ArrayList;
 import java.util.List;

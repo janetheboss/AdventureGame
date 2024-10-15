@@ -1,8 +1,7 @@
 package service;
 
-import input_output.Player;
-import input_output.User;
-import operation.UserChangePassword;
+import model.Player;
+import model.User;
 
 import java.util.Scanner;
 import java.util.ArrayList;

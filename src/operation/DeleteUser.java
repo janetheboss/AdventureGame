@@ -1,7 +1,7 @@
 package operation;
 
 import java.util.Scanner;
-import input_output.User;
+import model.User;
 
 public class DeleteUser {
     private Scanner scanner;

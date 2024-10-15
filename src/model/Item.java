@@ -1,4 +1,4 @@
-package input_output;
+package model;
 
 public class Item {
     private String name;

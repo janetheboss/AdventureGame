@@ -1,11 +1,11 @@
-package unite_test;
+package test;
 
-import input_output.RegisterUserInput;
-import input_output.User;
+import inputOutput.RegisterUserInput;
+import model.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import operation.UserChangePassword;
+import service.UserChangePassword;
 import operation.RegisterUser;
 
 import java.security.NoSuchAlgorithmException;

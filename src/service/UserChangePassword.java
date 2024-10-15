@@ -1,7 +1,8 @@
-package operation;
+package service;
 
-import input_output.RegisterUserInput;
-import input_output.User;
+import inputOutput.RegisterUserInput;
+import model.User;
+import operation.RegisterUser;
 
 import java.security.NoSuchAlgorithmException;
 

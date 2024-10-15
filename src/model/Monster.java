@@ -1,4 +1,4 @@
-package input_output;
+package model;
 
 public class Monster {
     private String name;

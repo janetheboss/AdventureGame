@@ -1,4 +1,4 @@
-package input_output;
+package model;
 
 public class User {
     private static User instance;

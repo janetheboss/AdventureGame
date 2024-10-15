@@ -1,10 +1,10 @@
-package unite_test;
+package test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import Exceptions.UserException;
-import input_output.RegisterUserInput;
-import input_output.User;
+import inputOutput.RegisterUserInput;
+import model.User;
 import operation.RegisterUser;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
