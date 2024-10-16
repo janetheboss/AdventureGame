@@ -1,5 +1,6 @@
 package test;
 
+import enums.PlayerClass;
 import model.Player;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -27,7 +28,7 @@ class PlayerServiceTest {
 
     @Test
     void testEditInfo_Success() {
-        playerService.addPlayer(new Player("ValidPlayer", "Mage"));
+        playerService.addPlayer(new Player("ValidPlayer", PlayerClass.mage));
 
         Player updatedPlayer = playerService.editPlayerInfo("ValidPlayer", "UpdatedPlayer", "Warrior");
 

@@ -1,7 +1,7 @@
 package service;
 
 import Exceptions.UserException;
-import inputOutput.RegisterUserInput;
+import inputoutput.RegisterUserInput;
 import model.User;
 import operation.LogInUser;
 import operation.RegisterUser;

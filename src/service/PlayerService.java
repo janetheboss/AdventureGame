@@ -1,5 +1,6 @@
 package service;
 
+import enums.PlayerClass;
 import model.Player;
 import model.User;
 
@@ -19,7 +20,7 @@ public class PlayerService {
         System.out.println("Choose your class: ");
         String playerClass = scanner.nextLine();
 
-        Player player = new Player(playerName, playerClass);
+        Player player = new Player(playerName, PlayerClass.valueOf(playerClass));
         players.add(player);
 
         System.out.println("input_output.Player " + player.getName() + " of class " + playerClass + " created.");
@@ -163,10 +164,13 @@ public class PlayerService {
         System.out.print("Enter player class: ");
         String playerClass = scanner.nextLine();
 
-        Player newPlayer = new Player(playerName, playerClass);
+        Player newPlayer = new Player(playerName,  PlayerClass.valueOf(playerClass));
         addPlayer(newPlayer);
 
         System.out.println("input_output.Player " + newPlayer.getName() + " (" + newPlayer.getPlayerClass() + ") created and added to the list.");
     }
+    public void getPlayerStatsFromClass(PlayerClass playerClass)
+    {
 
+    }
 }

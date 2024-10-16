@@ -1,4 +1,4 @@
-package inputOutput;
+package inputoutput;
 
 public class RegisterUserInput {
     private String username;

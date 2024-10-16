@@ -1,7 +1,7 @@
 package operation;
 
 import Exceptions.UserException;
-import inputOutput.RegisterUserInput;
+import inputoutput.RegisterUserInput;
 import model.User;
 
 import java.nio.charset.StandardCharsets;

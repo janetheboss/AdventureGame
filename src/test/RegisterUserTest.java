@@ -3,7 +3,7 @@ package test;
 import static org.junit.jupiter.api.Assertions.*;
 
 import Exceptions.UserException;
-import inputOutput.RegisterUserInput;
+import inputoutput.RegisterUserInput;
 import model.User;
 import operation.RegisterUser;
 import org.junit.jupiter.api.Assertions;

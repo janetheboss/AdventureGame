@@ -1,6 +1,6 @@
 package service;
 
-import inputOutput.RegisterUserInput;
+import inputoutput.RegisterUserInput;
 import model.User;
 import operation.RegisterUser;
 
