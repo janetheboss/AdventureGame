@@ -1,3 +1,9 @@
+package service;
+
+import inputoutput.RegisterUserInput;
+import model.User;
+import operation.RegisterUser;
+
 import java.security.NoSuchAlgorithmException;
 
 public class UserChangePassword {

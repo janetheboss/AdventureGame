@@ -1,4 +1,11 @@
-import Exceptions.UserException;
+package service;
+
+import exceptions.UserException;
+import inputoutput.RegisterUserInput;
+import model.User;
+import operation.LogInUser;
+import operation.RegisterUser;
+
 import java.util.Scanner;
 
 public class UserService {

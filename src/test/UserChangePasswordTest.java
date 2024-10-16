@@ -1,11 +1,17 @@
+package test;
+
+import inputoutput.RegisterUserInput;
+import model.User;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import service.UserChangePassword;
+import operation.RegisterUser;
 
 import java.security.NoSuchAlgorithmException;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 public class UserChangePasswordTest {
+
     private User registeredUser;
     private RegisterUserInput userInput;
     private UserChangePassword userChangePassword;
@@ -13,6 +19,7 @@ public class UserChangePasswordTest {
     @BeforeEach
     public void setUp() throws NoSuchAlgorithmException {
         RegisterUser registerUser = new RegisterUser();
+
         String initialPassword = "oldPassword123";
         String salt = registerUser.generateSalt();
         String hashedPassword = registerUser.hashPassword(initialPassword, salt);
@@ -35,7 +42,7 @@ public class UserChangePasswordTest {
         userChangePassword.changePassword(registeredUser, userInput);
 
         String hashedNewPassword = new RegisterUser().hashPassword(newPassword, registeredUser.getSalt());
-        assertEquals(hashedNewPassword, registeredUser.getHashedPassword(), "Password should be updated successfully.");
+        Assertions.assertEquals(hashedNewPassword, registeredUser.getHashedPassword(), "Password should be updated successfully.");
     }
 
     @Test
@@ -51,6 +58,6 @@ public class UserChangePasswordTest {
         userChangePassword.changePassword(registeredUser, userInput);
 
         String hashedOldPassword = new RegisterUser().hashPassword("oldPassword123", registeredUser.getSalt());
-        assertEquals(hashedOldPassword, registeredUser.getHashedPassword(), "Password should not be updated due to incorrect old password.");
+        Assertions.assertEquals(hashedOldPassword, registeredUser.getHashedPassword(), "Password should not be updated due to incorrect old password.");
     }
 }

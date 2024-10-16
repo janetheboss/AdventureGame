@@ -1,4 +1,9 @@
-import Exceptions.UserException;
+package operation;
+
+import exceptions.UserException;
+import inputoutput.RegisterUserInput;
+import model.User;
+
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

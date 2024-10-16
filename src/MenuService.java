@@ -1,3 +1,9 @@
+import operation.DeleteUser;
+import service.UserChangePassword;
+import seeder.PlayerData;
+import service.PlayerService;
+import service.UserService;
+
 import java.util.Scanner;
 
 public class MenuService {
@@ -21,7 +27,7 @@ public class MenuService {
         while (!exit) {
             System.out.println("----- Main Menu -----");
             System.out.println("1. Register User");
-            System.out.println("2. Log In User");
+            System.out.println("2. Log In");
             System.out.println("3. Change User Password");
             System.out.println("4. Create Player");
             System.out.println("5. Edit Player Information");
@@ -57,7 +63,7 @@ public class MenuService {
                     yield false;
                 }
                 case 5 -> {
-                    System.out.println("----- Edit Player Information -----");
+                    System.out.println("----- Edit input_output Information -----");
                     playerService.handleEditPlayerInfo(scanner);
                     yield false;
                 }

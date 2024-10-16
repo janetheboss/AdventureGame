@@ -1,3 +1,5 @@
+package model;
+
 public class User {
     private static User instance;
 
@@ -6,7 +8,7 @@ public class User {
     private String salt;
     private boolean isMarkedForDeletion;
 
-    User(String username, String hashedPassword, String salt) {
+    public User(String username, String hashedPassword, String salt) {
         this.username = username;
         this.hashedPassword = hashedPassword;
         this.salt = salt;

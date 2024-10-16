@@ -1,3 +1,7 @@
+package model;
+
+import enums.PlayerClass;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -6,9 +10,9 @@ public class Player {
     private String playerClass;
     private List<Item> inventory;
 
-    public Player(String name, String playerClass) {
+    public Player(String name, PlayerClass playerClass) {
         this.name = name;
-        this.playerClass = playerClass;
+        this.playerClass = String.valueOf(playerClass);
         this.inventory = new ArrayList<>();
     }
 

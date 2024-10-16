@@ -1,11 +1,17 @@
+package test;
+
+import enums.PlayerClass;
+import model.Player;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import seeder.PlayerData;
+import service.PlayerService;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
-import java.util.List;
 import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -22,13 +28,13 @@ class PlayerServiceTest {
 
     @Test
     void testEditInfo_Success() {
-        playerService.addPlayer(new Player("ValidPlayer", "Mage")); // Create a player for testing
+        playerService.addPlayer(new Player("ValidPlayer", PlayerClass.mage));
 
         Player updatedPlayer = playerService.editPlayerInfo("ValidPlayer", "UpdatedPlayer", "Warrior");
 
         assertNotNull(updatedPlayer);
-        assertEquals("UpdatedPlayer", updatedPlayer.getName());
-        assertEquals("Warrior", updatedPlayer.getPlayerClass());
+        Assertions.assertEquals("UpdatedPlayer", updatedPlayer.getName());
+        Assertions.assertEquals("Warrior", updatedPlayer.getPlayerClass());
     }
 
     @Test

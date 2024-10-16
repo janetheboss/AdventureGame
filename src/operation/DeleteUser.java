@@ -1,4 +1,7 @@
+package operation;
+
 import java.util.Scanner;
+import model.User;
 
 public class DeleteUser {
     private Scanner scanner;

@@ -1,3 +1,9 @@
+package service;
+
+import enums.PlayerClass;
+import model.Player;
+import model.User;
+
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,10 +20,10 @@ public class PlayerService {
         System.out.println("Choose your class: ");
         String playerClass = scanner.nextLine();
 
-        Player player = new Player(playerName, playerClass);
+        Player player = new Player(playerName, PlayerClass.valueOf(playerClass));
         players.add(player);
 
-        System.out.println("Player " + player.getName() + " of class " + playerClass + " created.");
+        System.out.println("input_output.Player " + player.getName() + " of class " + playerClass + " created.");
         return player;
     }
 
@@ -47,20 +53,20 @@ public class PlayerService {
         Player currentPlayer = findPlayerByName(playerName);
 
         if (currentPlayer == null) {
-            System.out.println("Player with name '" + playerName + "' not found.");
+            System.out.println("input_output.Player with name '" + playerName + "' not found.");
             return null;
         }
 
         currentPlayer.setName(newPlayerName);
         currentPlayer.setPlayerClass(newPlayerClass);
 
-        System.out.println("Player info updated: " + currentPlayer.getName() + " of class " + currentPlayer.getPlayerClass());
+        System.out.println("input_output.Player info updated: " + currentPlayer.getName() + " of class " + currentPlayer.getPlayerClass());
 
         return currentPlayer;
     }
 
     public void handleEditPlayerInfo(Scanner scanner) {
-        System.out.println("----- Change Player Information -----");
+        System.out.println("----- Change input_output.Player Information -----");
         System.out.println("Enter the current name of the player: ");
         String currentName = scanner.nextLine();
         System.out.println("Enter the new name for the player: ");
@@ -158,10 +164,13 @@ public class PlayerService {
         System.out.print("Enter player class: ");
         String playerClass = scanner.nextLine();
 
-        Player newPlayer = new Player(playerName, playerClass);
+        Player newPlayer = new Player(playerName,  PlayerClass.valueOf(playerClass));
         addPlayer(newPlayer);
 
-        System.out.println("Player " + newPlayer.getName() + " (" + newPlayer.getPlayerClass() + ") created and added to the list.");
+        System.out.println("input_output.Player " + newPlayer.getName() + " (" + newPlayer.getPlayerClass() + ") created and added to the list.");
     }
+    public void getPlayerStatsFromClass(PlayerClass playerClass)
+    {
 
+    }
 }

@@ -1,3 +1,5 @@
+package inputoutput;
+
 public class RegisterUserInput {
     private String username;
     private String password;

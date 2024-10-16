@@ -1,4 +1,8 @@
-import Exceptions.UserException;
+package operation;
+
+import exceptions.UserException;
+import model.User;
+
 import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
 
