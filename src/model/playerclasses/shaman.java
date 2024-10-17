@@ -1,17 +1,17 @@
-package model.playerClasses;
+package model.playerclasses;
 
 import enums.PlayerClass;
 
-public class Priest implements SetStats{
-    private int attack = 60;
-    private int defense = 50;
+public class shaman implements SetStats{
+    private int attack = 40;
+    private int defense = 60;
     private int health = 70;
-    private int specialAttack = 70;
+    private int specialAttack = 80;
     private int specialDefense = 50;
 
     @Override
     public void SetPlayerStatsForClass(PlayerClass playerClass) {
-        System.out.println("The Players class " + playerClass);
+        System.out.println("The player clss "+ playerClass);
     }
 
     public int getAttack() {

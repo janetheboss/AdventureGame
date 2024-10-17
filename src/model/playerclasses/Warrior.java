@@ -1,4 +1,4 @@
-package model.playerClasses;
+package model.playerclasses;
 
 import enums.PlayerClass;
 

@@ -1,18 +1,13 @@
-package model.playerClasses;
+package model.playerclasses;
 
 import enums.PlayerClass;
 
-public class shaman implements SetStats{
-    private int attack = 40;
-    private int defense = 60;
+public class Assassin implements SetStats {
+    private int attack = 20;
+    private int defense = 30;
     private int health = 70;
-    private int specialAttack = 80;
-    private int specialDefense = 50;
-
-    @Override
-    public void SetPlayerStatsForClass(PlayerClass playerClass) {
-        System.out.println("The player clss "+ playerClass);
-    }
+    private int specialAttack = 110;
+    private int specialDefense = 70;
 
     public int getAttack() {
         return attack;
@@ -33,4 +28,10 @@ public class shaman implements SetStats{
     public int getSpecialDefense() {
         return specialDefense;
     }
+
+    @Override
+    public void SetPlayerStatsForClass(PlayerClass playerClass) {
+        System.out.println("Player Class: " + playerClass);
+    }
 }
+

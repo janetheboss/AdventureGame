@@ -1,6 +1,6 @@
 package operation;
 
-import Exceptions.UserException;
+import exceptions.UserException;
 import inputoutput.RegisterUserInput;
 import model.User;
 
