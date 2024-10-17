@@ -1,13 +1,13 @@
-package playerClasses;
+package model.playerClasses;
 
 import enums.PlayerClass;
 
-public class Hunter implements SetStats{
-    private int attack = 130;
-    private int defense = 20;
-    private int health = 70;
-    private int specialAttack = 40;
-    private int specialDefense = 40;
+public class Mage implements SetStats {
+    private int attack = 20;
+    private int defense = 50;
+    private int health = 60;
+    private int specialAttack = 120;
+    private int specialDefense = 50;
 
     @Override
     public void SetPlayerStatsForClass(PlayerClass playerClass) {

@@ -1,14 +1,18 @@
-package playerClasses;
+package model.playerClasses;
 
 import enums.PlayerClass;
-import model.Player;
 
-public class Assassin implements SetStats {
-    private int attack = 20;
-    private int defense = 30;
+public class Priest implements SetStats{
+    private int attack = 60;
+    private int defense = 50;
     private int health = 70;
-    private int specialAttack = 110;
-    private int specialDefense = 70;
+    private int specialAttack = 70;
+    private int specialDefense = 50;
+
+    @Override
+    public void SetPlayerStatsForClass(PlayerClass playerClass) {
+        System.out.println("The Players class " + playerClass);
+    }
 
     public int getAttack() {
         return attack;
@@ -29,10 +33,4 @@ public class Assassin implements SetStats {
     public int getSpecialDefense() {
         return specialDefense;
     }
-
-    @Override
-    public void SetPlayerStatsForClass(PlayerClass playerClass) {
-        System.out.println("Player Class: " + playerClass);
-    }
 }
-

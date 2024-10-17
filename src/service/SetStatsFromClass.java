@@ -1,7 +1,7 @@
 package service;
 
 import enums.PlayerClass;
-import playerClasses.*;
+import model.playerClasses.*;
 
 import java.util.HashMap;
 import java.util.Map;

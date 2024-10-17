@@ -1,19 +1,17 @@
-package playerClasses;
+package model.playerClasses;
 
 import enums.PlayerClass;
 
-import java.io.Serializable;
-
-public class Mage implements SetStats {
-    private int attack = 20;
-    private int defense = 50;
-    private int health = 60;
-    private int specialAttack = 120;
+public class shaman implements SetStats{
+    private int attack = 40;
+    private int defense = 60;
+    private int health = 70;
+    private int specialAttack = 80;
     private int specialDefense = 50;
 
     @Override
     public void SetPlayerStatsForClass(PlayerClass playerClass) {
-        System.out.println("The players class : " + playerClass);
+        System.out.println("The player clss "+ playerClass);
     }
 
     public int getAttack() {
